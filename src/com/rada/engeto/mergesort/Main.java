@@ -1,4 +1,5 @@
 package com.rada.engeto.mergesort;
+import java.util.Arrays;
 import java.util.Random;
 
 public class Main {
@@ -8,9 +9,11 @@ public class Main {
         Integer[] a = {8,1,7,5,4,2,3,9,6};
         String[] b = {"h","d","g","e","i","a","b","f","c"};
 
+
+
         // Generate random numbers for test
         Random rd = new Random();
-        Integer[] arr = new Integer[100];
+        Integer[] arr = new Integer[10000];
         for (int i = 0; i < arr.length; i++) {
             arr[i] = rd.nextInt() & Integer.MAX_VALUE;
         }

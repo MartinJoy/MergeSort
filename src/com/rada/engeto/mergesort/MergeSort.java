@@ -17,7 +17,7 @@ public class MergeSort<T extends Comparable<? super T>>{
 
     private Thread mergeSortThread(T[] ar, int threadCount){
 
-        return new Thread(() -> sort(ar, threadCount / 2));
+        return new Thread(() -> sort(ar));
     }
 
     /**
@@ -37,15 +37,11 @@ public class MergeSort<T extends Comparable<? super T>>{
         T[] left = (T[]) new Comparable[mid];
         T[] right = (T[]) new Comparable[ar.length - mid];
 
-        // copy elements left of mid point to left array
-        for(int i=0; i < left.length; i++){
-            left[i] = ar[i];
-        }
-
-        // copy elements right of mid point to right array
-        for(int j=0; j < right.length; j++){
-            right[j] = ar[mid+j];
-        }
+        // copy elements to the left and right arrays
+        // left of mid point to left array
+        // right of mid point to right array
+        System.arraycopy(ar,0,left,0, left.length);
+        System.arraycopy(ar,mid,right,0, right.length);
 
         // recursively sort;
         sort(left);
@@ -73,15 +69,11 @@ public class MergeSort<T extends Comparable<? super T>>{
         T[] left = (T[]) new Comparable[mid];
         T[] right = (T[]) new Comparable[ar.length - mid];
 
-        // copy elements left of mid point to left array
-        for(int i=0; i < left.length; i++){
-            left[i] = ar[i];
-        }
-
-        // copy elements right of mid point to right array
-        for(int j=0; j < right.length; j++){
-            right[j] = ar[mid+j];
-        }
+        // copy elements to the left and right arrays
+        // left of mid point to left array
+        // right of mid point to right array
+        System.arraycopy(ar,0,left,0, left.length);
+        System.arraycopy(ar,mid,right,0, right.length);
 
         // recursively sort;
         Thread leftSort = mergeSortThread(left, threadCount);
